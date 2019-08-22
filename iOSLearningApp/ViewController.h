@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIWebViewDelegate, UIActionSheetDelegate> {
+    UIWebView    *theWebView;
+    NSString    *urlString;
+    UIActivityIndicatorView  *whirl;
 
+}
 
+-(void) updateToolbar;
+
+@property (nonatomic, retain) NSString *urlString;
 @end
 

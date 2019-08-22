@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -15,8 +17,25 @@
 @implementation AppDelegate
 
 
+@synthesize window, navigationController;
+
+
+#pragma mark -
+#pragma mark Application lifecycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    navigationController = [[UINavigationController alloc] init];
+    navigationController.navigationBar.hidden = YES;
+    navigationController.toolbar.barStyle = UIBarStyleBlack;
+    ViewController *viewController = [[ViewController alloc] init];
+    viewController.urlString = @"https://developer.chrome.com/multidevice/ios/overview";
+    
+    [navigationController pushViewController:viewController animated:NO];
+    
+    [self.window setRootViewController:navigationController];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
